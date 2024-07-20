@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 400px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .button-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        width: 45%; /* Adjust width as needed */
+      }
+      #adminForm,
+      #userForm,
+      #registerUserForm,
+      #registerAdminForm {
+        display: none;
+      }
+      form {
+        margin-top: 20px;
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      form input[type="text"],
+      form input[type="password"] {
+        width: calc(100% - 22px); /* Adjust width and padding as needed */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button-container">
+        <button onclick="showForm('admin')">Administrator</button>
+        <button onclick="showForm('user')">User</button>
+      </div>
+      <div id="adminForm">
+        <form action="/adminLogin" method="post">
+          <label for="adminUsername">Username</label>
+          <input type="text" id="adminUsername" name="adminUsername" required />
+          <label for="adminPassword">Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            name="adminPassword"
+            required
+          />
+          <input type="submit" value="Login" />
+        </form>
+        <p>
+          Don't have an account?
+          <a href="#" onclick="showForm('adminRegister')">Register</a>
+        </p>
+      </div>
+
+      <div id="userForm">
+        <form action="/userLogin" method="post">
+          <label for="userUsername">Username</label>
+          <input type="text" id="userUsername" name="userUsername" required />
+          <label for="userPassword">Password</label>
+          <input
+            type="password"
+            id="userPassword"
+            name="userPassword"
+            required
+          />
+          <input type="submit" value="Login" />
+        </form>
+        <p>
+          Don't have an account?
+          <a href="#" onclick="showForm('userRegister')">Register</a>
+        </p>
+      </div>
+      <div id="registerAdminForm">
+        <form action="/adminRegister" method="post">
+          <label for="registerEmail">Email</label>
+          <input type="text" id="registerEmail" name="registerEmail" required />
+          <label for="registerPassword">Password</label>
+          <input
+            type="password"
+            id="registerPassword"
+            name="registerPassword"
+            required
+          />
+          <input type="submit" value="Register" />
+        </form>
+      </div>
+      <div id="registerUserForm">
+        <form action="/userRegister" method="post">
+          <label for="registerEmail">Email</label>
+          <input type="text" id="registerEmail" name="registerEmail" required />
+          <label for="registerPassword">Password</label>
+          <input
+            type="password"
+            id="registerPassword"
+            name="registerPassword"
+            required
+          />
+          <input type="submit" value="Register" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function showForm(type) {
+        document.getElementById("adminForm").style.display = "none";
+        document.getElementById("userForm").style.display = "none";
+        document.getElementById("registerAdminForm").style.display = "none";
+        document.getElementById("registerUserForm").style.display = "none";
+
+        if (type === "admin") {
+          document.getElementById("adminForm").style.display = "block";
+        } else if (type === "user") {
+          document.getElementById("userForm").style.display = "block";
+        } else if (type === "adminRegister") {
+          document.getElementById("registerAdminForm").style.display = "block";
+        } else if (type === "userRegister") {
+          document.getElementById("registerUserForm").style.display = "block";
+        }
+      }
+
+      function loginRedirect(role) {
+        // Perform login validation and redirect
+        if (role === "admin") {
+          window.location.href = "{{ url_for('adminLogin') }}"; // Use the endpoint name 'admin'
+        } else if (role === "user") {
+          window.location.href = "{{url_for('userDashboard')}}"; // Use the endpoint name 'dashboard'
+        }
+      }
+
+      function register() {
+        // Perform registration process
+        var email = document.getElementById("registerEmail").value;
+        alert("Registration successful for email: " + email);
+        // After registration, you can redirect to login page or any other page
+      }
+    </script>
+  </body>
+</html>

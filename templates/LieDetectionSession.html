@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link
+      rel="icon"
+      href="{{url_for('static',filename='images/icon.png')}}"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{url_for('static',filename='images/icon.png')}}"
+    />
+
+    <title>Facial Recognition</title>
+
+    <style>
+      .ttrsidebar1 {
+        background-image: url("{{url_for('static', filename='images/po1.gif')}}");
+      }
+
+      .ttrSidebarbg1 {
+        background-image: url("{{url_for('static', filename='images/background1.gif')}}");
+      }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/dataTables.bootstrap4.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/assets.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/vendors/calendar/fullcalendar.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/typography.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/shortcodes/shortcodes.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/dashboard.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/froala_editor.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/froala_style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/code_view.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/colors.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/emoticons.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/image_manager.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/image.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/line_breaker.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/table.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/char_counter.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/video.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/fullscreen.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/file.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/quick_insert.css')}}"
+    />
+    <style type="text/css">
+      .btn.dropdown-toggle.btn-default:hover {
+        color: #000 !important;
+      }
+
+      .btn.dropdown-toggle.btn-default:focus {
+        color: #000 !important;
+      }
+
+      .widget-card .icon {
+        position: absolute;
+        top: auto;
+        bottom: -20px;
+        right: 5px;
+        z-index: 0;
+        font-size: 65px;
+        color: rgba(0, 0, 0, 0.15);
+      }
+
+      tbody tr:hover {
+        background-color: #d4d4d4;
+      }
+    </style>
+  </head>
+  <style type="text/css">
+    /*===================== 	Premery bg color =====================*/
+
+    :root {
+      --primary: #009dff;
+      --sc-primary: #009dff;
+    }
+
+    /* Hex */
+
+    .bg-primary,
+    .btn,
+    .comments-area .comment-form p input[type="submit"],
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus,
+    .feature-filters .active > [class*="btn"],
+    .list-num-count > li:before,
+    .pagination-bx.primary .pagination > li > a,
+    .pagination-bx.primary .pagination > li > span,
+    button.back-to-top,
+    .rev-btn {
+      background-color: #009dff;
+    }
+
+    /*Hex color :hover */
+
+    .btn:active,
+    .btn:hover,
+    .btn:focus,
+    .active > .btn,
+    .bg-primary-dark,
+    .pagination > li > a:hover,
+    .pagination > li > span:hover,
+    .pagination > li > a:focus,
+    .pagination > li > span:focus,
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus,
+    .sidenav .closebtn:hover,
+    .sidenav .closebtn:focus,
+    .owl-btn-1.primary .owl-prev:hover,
+    .owl-btn-1.primary .owl-next:hover,
+    .owl-btn-2.primary .owl-prev:hover,
+    .owl-btn-2.primary .owl-next:hover,
+    .pagination-bx.primary .pagination > li > a:hover,
+    .pagination-bx.primary .pagination > li > span:hover,
+    .pagination-bx.primary .pagination > li.active > span,
+    .pagination-bx.primary .pagination > li.active > a {
+      background-color: #009dff;
+    }
+
+    /*===================== 	Premery text color =====================*/
+
+    a,
+    .text-primary,
+    .primary li:before,
+    .menu-links .nav > li.active > a,
+    .menu-links .nav > li:hover > a,
+    .menu-links .nav > li .mega-menu > li ul a:hover,
+    .menu-links .nav > li .sub-menu li:hover > a,
+    footer a:active,
+    footer a:focus,
+    footer a:hover,
+    footer h1 a,
+    footer h2 a,
+    footer h3 a,
+    footer h4 a,
+    footer h5 a,
+    footer h6 a,
+    footer p a,
+    .testimonial-1 .testimonial-position,
+    .acod-head a:after,
+    .acod-head a,
+    .acod-head a:hover,
+    .acod-head a.collapsed:hover,
+    .ttr-tabs .nav-tabs > li > a i,
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover,
+    .btn.outline,
+    .btn-link:hover {
+      color: #009dff;
+    }
+
+    /*===================== 	Secondery bg color =====================*/
+
+    .bg-secondry {
+      background-color: #009dff;
+    }
+
+    /*===================== 	Secondery text color =====================*/
+
+    .text-secondry {
+      color: #009dff;
+    }
+
+    .ovpr-light:after,
+    .ovpr-middle:after,
+    .ovpr-dark:after,
+    .ovpr:after,
+    .bg-primary {
+      background-color: #009dff;
+    }
+
+    .footer-top,
+    .footer-bottom {
+      background-color: #009dff;
+    }
+
+    .ovbl-middle::after,
+    .ovbl-light::after,
+    .ovbl-dark::after {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffb700+0,#009dff+50,110038+100 */
+      background: #009dff;
+      /* Old browsers */
+      background: -moz-linear-gradient(
+        45deg,
+        #009dff 0%,
+        #009dff 50%,
+        #009dff 100%
+      );
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        45deg,
+        #009dff 0%,
+        #009dff 50%,
+        #009dff 100%
+      );
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg, #009dff 0%, #009dff 50%, #009dff 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+      /* IE6-9 fallback on horizontal gradient */
+    }
+
+    .ttr-notify-header::after,
+    .widget-bg1,
+    .ttr-search-bar,
+    .ttr-header,
+    .ovpr-dark:after,
+    .pricingtable-main,
+    .account-head:after {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009dff+0,3f189a+100 */
+      background: #009dff;
+      /* Old browsers */
+      background: -moz-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+      /* IE6-9 fallback on horizontal gradient */
+    }
+
+    /* Secondry Color */
+
+    .portfolio-bx .portfolio-info-bx,
+    .btn.outline:hover,
+    .course-info-list ul li a.active,
+    .course-info-list ul li a:hover,
+    .btn,
+    .profile-tabnav .nav li a.active,
+    button.back-to-top,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev,
+    .upcoming-event-carousel.owl-btn-1 .owl-next,
+    .courses-carousel .owl-nav .owl-next,
+    .courses-carousel .owl-nav .owl-prev,
+    .recent-news-carousel .owl-nav .owl-next,
+    .recent-news-carousel .owl-nav .owl-prev,
+    .testimonial-carousel .owl-nav .owl-next,
+    .testimonial-carousel .owl-nav .owl-prev {
+      background-color: #009dff;
+      color: #fff;
+    }
+
+    .footer_widget ul li a:hover,
+    [class*="ovbl-"] .counter-style-1 .counter-text,
+    .header-transparent .secondary-menu .btn-link:hover,
+    .header-transparent .menu-links .nav > li:hover > a,
+    .header-transparent .menu-links .nav > li.active > a {
+      color: #009dff;
+    }
+
+    .course-info-list ul li a.active:hover,
+    .course-info-list ul li a:hover,
+    .btn:hover,
+    .profile-tabnav .nav li a.active:hover,
+    button.back-to-top:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-next:hover,
+    .courses-carousel .owl-nav .owl-next:hover,
+    .courses-carousel .owl-nav .owl-prev:hover,
+    .recent-news-carousel .owl-nav .owl-next:hover,
+    .recent-news-carousel .owl-nav .owl-prev:hover,
+    .testimonial-carousel .owl-nav .owl-next:hover,
+    .testimonial-carousel .owl-nav .owl-prev:hover {
+      background-color: #009dff;
+      color: #fff;
+    }
+
+    .heading-bx.left .title-head {
+      border-color: #009dff;
+    }
+  </style>
+
+  <body
+    class="ttr-opened-sidebar ttr-pinned-sidebar"
+    style="background-color: #fbfbfb"
+  >
+    <header class="ttr-header">
+      <div class="ttr-header-wrapper">
+        <div class="ttr-toggle-sidebar ttr-material-button">
+          <i class="ti-close ttr-open-icon"></i>
+          <i class="ti-menu ttr-close-icon"></i>
+        </div>
+        <div class="ttr-logo-box">
+          <div>
+            <a href="{{url_for('dashboard', logged_user_email=logged_user_email)}}" class="ttr-logo">
+              <img
+                alt=""
+                class="ttr-logo-mobile"
+                src="{{url_for('static',filename='images/logo-white.png')}}"
+                style="width: 200px; height: 36px"
+              />
+              <img
+                alt=""
+                class="ttr-logo-desktop"
+                src="{{url_for('static',filename='images/logo-white.png')}}"
+                style="width: 200px; height: 36px"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="ttr-header-menu"></div>
+        <div class="ttr-header-right ttr-with-seperator">
+          <ul class="ttr-header-navigation">
+            <li>
+              <a href="#" class="ttr-material-button ttr-submenu-toggle"
+                ><img
+                  src="{{url_for('static',filename='images/admin.jpg')}}"
+                  style="
+                    background-color: #ffffff;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 50%;
+                  "
+              /></a>
+              <div class="ttr-header-submenu noti-menu">
+                <div class="ttr-notify-header">
+                  <span class="ttr-notify-text-top">{{logged_user_email}}</span>
+                  <span class="ttr-notify-text">ADMIN</span>
+                </div>
+                <div class="noti-box-list">
+                  <ul>
+                    <hr />
+                    <a
+                      href="{{url_for('dashboard', logged_user_email=logged_user_email)}}"
+                      style="text-decoration: none; color: black"
+                    >
+                      <li>
+                        <span class="notification-icon dashbg-yellow">
+                          <i class="fa fa-calendar" style="font-size: 18px"></i>
+                        </span>
+                        <span
+                          style="font-size: 22px"
+                          style="color: black !important"
+                        >
+                          Dashboard
+                        </span>
+                      </li>
+                    </a>
+                    <hr />
+                    <a
+                      href="{{url_for('login')}}"
+                      style="text-decoration: none; color: black"
+                    >
+                      <li>
+                        <span class="notification-icon dashbg-red">
+                          <i class="fa fa-sign-out" style="font-size: 18px"></i>
+                        </span>
+                        <span
+                          style="font-size: 22px"
+                          style="color: black !important"
+                        >
+                          Logout
+                        </span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ttr-sidebar">
+      <div class="ttr-sidebar-wrapper content-scroll">
+        <div
+          class="ttr-sidebar-logo ttrSidebar1"
+          style="
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 160px;
+          "
+        >
+          <div class="ttr-sidebar-toggle-button">
+            <i class="ti-arrow-left"></i>
+          </div>
+          <div style="padding-left: 12px; padding-top: 12px">
+            <div class="image">
+              <img
+                src="{{url_for('static',filename='images/admin.jpg')}}"
+                style="
+                  background: #ffffff;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 50%;
+                "
+                alt="User"
+              />
+            </div>
+            <div style="height: 8px"></div>
+
+            <div class="info-container">
+              <div
+                class="name"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style="color: white; font-size: 15px"
+              >
+                <!-- <b>Robert Wick</b> -->
+              </div>
+              <div class="email" style="color: white; font-size: 12px">
+                {{logged_user_email}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ttr-sidebar">
+          <div class="ttr-sidebar-wrapper content-scroll">
+            <div
+              class="ttr-sidebar-logo ttrSidebarbg1"
+              style="
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 160px;
+              "
+            >
+              <div class="ttr-sidebar-toggle-button">
+                <i class="ti-arrow-left"></i>
+              </div>
+              <div style="padding-left: 12px; padding-top: 12px">
+                <style>
+                  .info-container {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    background-color: #ffffff;
+                    padding: 10px;
+                  }
+                  .name,
+                  .email {
+                    margin-bottom: 5px;
+                  }
+                </style>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                  $(document).ready(function () {
+                    $(".image").hover(
+                      function () {
+                        $(".info-container").stop().slideDown();
+                      },
+                      function () {
+                        $(".info-container").stop().slideUp();
+                      }
+                    );
+                  });
+                </script>
+
+                <div class="image">
+                  <!-- Added class="image" here -->
+                  <img
+                    src="{{url_for('static',filename='images/admin.jpg')}}"
+                    style="
+                      background: #ffffff;
+                      width: 48px;
+                      height: 48px;
+                      border-radius: 50%;
+                    "
+                    alt="User"
+                  />
+                </div>
+                <div style="height: 8px"></div>
+
+                <div class="info-container">
+                  <div class="name" style="color: #000000; font-size: 15px">
+                    <!-- <b>Robert Wick</b> -->
+                  </div>
+                  <div class="email" style="color: #000000; font-size: 12px">
+                    {{logged_user_email}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="ttr-sidebar-navi">
+              <ul>
+                <li
+                  style="
+                    padding-left: 20px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    background-color: #009dff;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                  "
+                >
+                  <span class="ttr-label" style="color: WHITE; font-weight: 500"
+                    ><b>MAIN MENU</b></span
+                  >
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('dashboard', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Dashboard</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a>
+                    <span class="ttr-icon"><i class="ti-user"></i></span>
+                    <span class="ttr-label"><b>Lie Detection Sessions</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('ManageRecognition', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Manage Recognition</b></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="{{url_for('ManageUsers', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                    <span class="ttr-label"><b>Manage Users</b></span>
+                  </a>
+                </li>
+
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('HelpAndSupport', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                    <span class="ttr-label"><b>Help and Support</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('settingsAndPreference', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Settings and Preference</b></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="ttr-wrapper" style="background-color: #fbfbfb">
+      <div class="container-fluid">
+        <div class="col-lg-12 m-b30">
+          <br />
+          <div class="row">
+            <div class="col-lg-6 m-b30">
+              <div class="heading-bx left">
+                <h2 class="m-b10 title-head">Session History <span></span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <section>
+            <div id="sessionHistory">
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input
+                    type="text"
+                    id="searchName"
+                    placeholder="Search by Name..."
+                  />
+                  <img
+                    src="{{url_for('static',filename='images/Name.png')}}"
+                    alt="Name"
+                  />
+                </div>
+                <!-- <div class="filter-option">
+                  <input
+                    type="date"
+                    id="searchDate"
+                    placeholder="Search by Date..."
+                  />
+                  <img
+                    src="{{url_for('static',filename='images/Date.png')}}"
+                    alt="Date"
+                  />
+                </div> -->
+                <!-- <div class="filter-option">
+                  <input
+                    type="time"
+                    id="searchTime"
+                    placeholder="Search by Time..."
+                  />
+                  <img
+                    src="{{url_for('static',filename='images/Time.png')}}"
+                    alt="Time"
+                  />
+                </div> -->
+                <div class="filter-option">
+                  <input
+                    type="text"
+                    id="searchResult"
+                    placeholder="Search by Result..."
+                  />
+                  <img
+                    src="{{url_for('static',filename='images/Result.png')}}"
+                    alt="Result"
+                  />
+                </div>
+                <div class="filter-option">
+                  <select id="sortOrder" onchange="filterSessions()">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+                  <img
+                    src="{{url_for('static',filename='images/ascend &  descend.png')}}"
+                    alt="Order"
+                  />
+                </div>
+              </div>
+              <div id="sessionList" class="session-box">
+                {% for session in data %}
+                <div id="session{{ session.user_detail_id }}" class="session">
+                  id: {{ session.user_detail_id }}, date: '{{
+                  session.interaction_date }}', time: '{{
+                  session.interaction_time }}', participant: '{{
+                  session.full_name }}', result: '{{ session.results }}'
+                  <form action="/deleteLiebyAdmin" id="delForm" method="POST" style="display: inline-block;">
+                    <input type="text" hidden name="logged_user_email" value="{{logged_user_email}}">
+                    <input type="text" hidden name="user_detail_id" value="{{session.user_detail_id}}">
+                    <input
+                      type="submit"
+                      value="delete"
+                    />
+                  </form>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      .session-box {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .session {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .session button {
+        margin-left: 10px;
+      }
+
+      .filter-options {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .filter-option {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .filter-option img {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+      }
+    </style>
+
+    <script>
+      function deleteSession(sessionId) {
+        var sessionElement = document.getElementById(sessionId);
+        sessionElement.remove();
+      }
+
+      function filterSessions() {
+        var name = document.getElementById("searchName").value.toUpperCase();
+
+        // var date = document.getElementById("searchDate").value.toUpperCase();
+        // var time = document.getElementById("searchTime").value.toUpperCase();
+        var result = document
+          .getElementById("searchResult")
+          .value.toUpperCase();
+        var sortOrder = document.getElementById("sortOrder").value;
+        var sessions = document.getElementsByClassName("session");
+
+        for (var i = 0; i < sessions.length; i++) {
+          // var sessionText = sessions[i].textContent || sessions[i].innerText;
+          // var sessionName = sessions[i]
+          //   .querySelector("li")
+          //   .textContent.toUpperCase();
+          // var sessionDate = sessions[i]
+          //   .querySelectorAll("li")[1]
+          //   .textContent.toUpperCase();
+          // var sessionTime = sessions[i]
+          //   .querySelectorAll("li")[2]
+          //   .textContent.toUpperCase();
+          // var sessionResult = sessions[i]
+          //   .querySelectorAll("li")[4]
+          //   .textContent.toUpperCase();
+
+          var sessionText = sessions[i].textContent || sessions[i].innerText;
+          // var sessionParts = sessionText.split(",");
+          // var sessionName = sessionParts[3].trim().toUpperCase(); // Assuming the participant's name is the fourth part
+          // var sessionDate = sessionParts[1].trim().toUpperCase(); // Assuming the date is the second part
+          // var sessionTime = sessionParts[2].trim().toUpperCase(); // Assuming the time is the third part
+          // var sessionResult = sessionParts[4].trim().toUpperCase(); // Assuming the result is the fifth part
+          var sessionString = sessionText;
+          var participantRegex = /participant: '(.*?)'/;
+          var resultRegex = /result: '(.*?)'/;
+          var participantMatch = sessionString.match(participantRegex);
+          var resultMatch = sessionString.match(resultRegex);
+          var participant = participantMatch ? participantMatch[1] : null;
+          var results = resultMatch ? resultMatch[1] : null;
+          if (participant.toUpperCase().indexOf(name) > -1) {
+            if (results.toUpperCase().indexOf(result) > -1) {
+              sessions[i].style.display = "";
+            } else {
+              sessions[i].style.display = "none";
+            }
+          } else {
+            sessions[i].style.display = "none";
+          }
+        }
+
+        // var sessionList = document.getElementById("sessionList");
+        // var sessionsArr = Array.from(sessionList.children);
+        // sessionsArr.sort(function (a, b) {
+        //   var sessionA = a.querySelector("li").textContent.toUpperCase();
+        //   var sessionB = b.querySelector("li").textContent.toUpperCase();
+        //   if (sortOrder === "asc") {
+        //     return session.localeCompare(sessionB);
+        //   } else {
+        //     return sessionB.localeCompare(sessionA);
+        //   }
+        // });
+
+        var sessionList = document.getElementById("sessionList");
+        var sessionsArr = Array.from(sessionList.children);
+
+        sessionsArr.sort(function (a, b) {
+          var sessionA = a.textContent.trim().toUpperCase();
+          var sessionB = b.textContent.trim().toUpperCase();
+
+          if (sortOrder === "asc") {
+            return sessionA.localeCompare(sessionB);
+          } else {
+            return sessionB.localeCompare(sessionA);
+          }
+        });
+
+        sessionList.innerHTML = "";
+        sessionsArr.forEach(function (session) {
+          sessionList.appendChild(session);
+        });
+      }
+      addEventListener("input", filterSessions);
+
+      
+    </script>
+    <div class="ttr-overlay"></div>
+
+    <script src="{{url_for('static',filename='dashboard/assets/js/jquery.min.js')}}"></script>
+
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap-select/bootstrap-select.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/magnific-popup/magnific-popup.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/counter/waypoints-min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/counter/counterup.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/imagesloaded/imagesloaded.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/masonry/masonry.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/masonry/filter.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/owl-carousel/owl.carousel.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/scroll/scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/functions.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/chart/chart.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/admin.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/calendar/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/froala_editor.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/align.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/char_counter.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/code_beautifier.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/code_view.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/colors.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/draggable.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/emoticons.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/entities.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/file.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/font_size.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/font_family.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/fullscreen.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/image.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/image_manager.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/line_breaker.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/inline_style.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/link.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/lists.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/paragraph_format.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/paragraph_style.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/quick_insert.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/quote.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/table.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/save.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/url.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/video.min.js')}}"
+    ></script>
+    <script>
+      (function () {
+        new FroalaEditor("#edit", {
+          toolbarButtons: {
+            moreText: {
+              buttons: [
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "subscript",
+                "superscript",
+                "fontFamily",
+                "fontSize",
+                "textColor",
+                "backgroundColor",
+                "inlineClass",
+                "inlineStyle",
+                "clearFormatting",
+              ],
+              align: "left",
+              buttonsVisible: 3,
+            },
+            moreParagraph: {
+              buttons: ["alignLeft", "alignCenter", "formatOLSimple"],
+              align: "left",
+              buttonsVisible: 3,
+            },
+            moreMisc: {
+              buttons: ["undo", "redo"],
+              align: "right",
+            },
+          },
+          toolbarButtonsXS: [
+            ["undo", "redo"],
+            ["bold", "italic", "underline"],
+          ],
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      function readURL(input, id) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $("#display-img-" + id).attr("src", e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $(document).ready(function () {
+        $("#table").DataTable();
+      });
+
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+  </body>
+</html>

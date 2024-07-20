@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        .ttrSidebarLogo {
+          background-image: url("{{url_for('static',filename='images/po1.gif')}}");
+        }
+  
+        .ttrSidebarnBg {
+          background-image: url("{{url_for('static',filename='images/background1.gif')}}");
+        }
+      </style>
+    <link rel="icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='images/icon.png')}}" />
+
+    <title>Facial Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/assets.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/vendors/calendar/fullcalendar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/typography.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/shortcodes/shortcodes.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/dashboard.css')}}">
+
+    <style type="text/css">
+        .btn.dropdown-toggle.btn-default:hover {
+            color: #000 !important;
+        }
+
+        .btn.dropdown-toggle.btn-default:focus {
+            color: #000 !important;
+        }
+
+        .widget-card .icon {
+            position: absolute;
+            top: auto;
+            bottom: -20px;
+            right: 5px;
+            z-index: 0;
+            font-size: 65px;
+            color: rgba(0, 0, 0, 0.15);
+        }
+
+        tbody tr:hover {
+            background-color: #d4d4d4;
+        }
+    </style>
+</head>
+<style type="text/css">
+    /*===================== 	Premery bg color =====================*/
+
+    :root {
+        --primary: #009DFF;
+        --sc-primary: #009DFF;
+    }
+
+    /* Hex */
+
+    .bg-primary,
+    .btn,
+    .comments-area .comment-form p input[type="submit"],
+    .pagination>.active>a,
+    .pagination>.active>span,
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover,
+    .pagination>.active>a:focus,
+    .pagination>.active>span:focus,
+    .feature-filters .active>[class*="btn"],
+    .list-num-count>li:before,
+    .pagination-bx.primary .pagination>li>a,
+    .pagination-bx.primary .pagination>li>span,
+    button.back-to-top,
+    .rev-btn {
+        background-color: #009DFF;
+    }
+
+    /*Hex color :hover */
+
+    .btn:active,
+    .btn:hover,
+    .btn:focus,
+    .active>.btn,
+    .bg-primary-dark,
+    .pagination>li>a:hover,
+    .pagination>li>span:hover,
+    .pagination>li>a:focus,
+    .pagination>li>span:focus,
+    .pagination>.active>a,
+    .pagination>.active>span,
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover,
+    .pagination>.active>a:focus,
+    .pagination>.active>span:focus,
+    .sidenav .closebtn:hover,
+    .sidenav .closebtn:focus,
+    .owl-btn-1.primary .owl-prev:hover,
+    .owl-btn-1.primary .owl-next:hover,
+    .owl-btn-2.primary .owl-prev:hover,
+    .owl-btn-2.primary .owl-next:hover,
+    .pagination-bx.primary .pagination>li>a:hover,
+    .pagination-bx.primary .pagination>li>span:hover,
+    .pagination-bx.primary .pagination>li.active>span,
+    .pagination-bx.primary .pagination>li.active>a {
+        background-color: #009DFF;
+    }
+
+    /*===================== 	Premery text color =====================*/
+
+    a,
+    .text-primary,
+    .primary li:before,
+    .menu-links .nav>li.active>a,
+    .menu-links .nav>li:hover>a,
+    .menu-links .nav>li .mega-menu>li ul a:hover,
+    .menu-links .nav>li .sub-menu li:hover>a,
+    footer a:active,
+    footer a:focus,
+    footer a:hover,
+    footer h1 a,
+    footer h2 a,
+    footer h3 a,
+    footer h4 a,
+    footer h5 a,
+    footer h6 a,
+    footer p a,
+    .testimonial-1 .testimonial-position,
+    .acod-head a:after,
+    .acod-head a,
+    .acod-head a:hover,
+    .acod-head a.collapsed:hover,
+    .ttr-tabs .nav-tabs>li>a i,
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover,
+    .btn.outline,
+    .btn-link:hover {
+        color: #009DFF;
+    }
+
+    /*===================== 	Secondery bg color =====================*/
+
+    .bg-secondry {
+        background-color: #009DFF;
+    }
+
+    /*===================== 	Secondery text color =====================*/
+
+    .text-secondry {
+        color: #009DFF;
+    }
+
+    .ovpr-light:after,
+    .ovpr-middle:after,
+    .ovpr-dark:after,
+    .ovpr:after,
+    .bg-primary {
+        background-color: #009DFF;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        background-color: #121921;
+    }
+
+    .ovbl-middle::after,
+    .ovbl-light::after,
+    .ovbl-dark::after {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009DFF+0,#009DFF+50,110038+100 */
+        background: #009DFF;
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg, #009DFF 0%, #009DFF 50%, #009DFF 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #009DFF 0%, #009DFF 50%, #009DFF 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #009DFF 0%, #009DFF 50%, #009DFF 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009DFF', endColorstr='#009DFF', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+    }
+
+    .ttr-notify-header::after,
+    .widget-bg1,
+    .ttr-search-bar,
+    .ttr-header,
+    .ovpr-dark:after,
+    .pricingtable-main,
+    .account-head:after {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009DFF+0,3f189a+100 */
+        background: #009DFF;
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg, #009DFF 0%, #009DFF 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #009DFF 0%, #009DFF 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #009DFF 0%, #009DFF 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009DFF', endColorstr='#009DFF', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+    }
+
+    /* Secondry Color */
+
+    .portfolio-bx .portfolio-info-bx,
+    .btn.outline:hover,
+    .course-info-list ul li a.active,
+    .course-info-list ul li a:hover,
+    .btn,
+    .profile-tabnav .nav li a.active,
+    button.back-to-top,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev,
+    .upcoming-event-carousel.owl-btn-1 .owl-next,
+    .courses-carousel .owl-nav .owl-next,
+    .courses-carousel .owl-nav .owl-prev,
+    .recent-news-carousel .owl-nav .owl-next,
+    .recent-news-carousel .owl-nav .owl-prev,
+    .testimonial-carousel .owl-nav .owl-next,
+    .testimonial-carousel .owl-nav .owl-prev {
+        background-color: #009DFF;
+        color: #fff;
+    }
+
+    .footer_widget ul li a:hover,
+    [class*="ovbl-"] .counter-style-1 .counter-text,
+    .header-transparent .secondary-menu .btn-link:hover,
+    .header-transparent .menu-links .nav>li:hover>a,
+    .header-transparent .menu-links .nav>li.active>a {
+        color: #009DFF;
+    }
+
+    .course-info-list ul li a.active:hover,
+    .course-info-list ul li a:hover,
+    .btn:hover,
+    .profile-tabnav .nav li a.active:hover,
+    button.back-to-top:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-next:hover,
+    .courses-carousel .owl-nav .owl-next:hover,
+    .courses-carousel .owl-nav .owl-prev:hover,
+    .recent-news-carousel .owl-nav .owl-next:hover,
+    .recent-news-carousel .owl-nav .owl-prev:hover,
+    .testimonial-carousel .owl-nav .owl-next:hover,
+    .testimonial-carousel .owl-nav .owl-prev:hover {
+        background-color: #009DFF;
+        color: #fff;
+    }
+
+    .heading-bx.left .title-head {
+        border-color: #009DFF;
+    }
+</style>
+
+<body class="ttr-opened-sidebar ttr-pinned-sidebar" style="background-color: #FBFBFB;">
+
+    <header class="ttr-header">
+        <div class="ttr-header-wrapper">
+            <div class="ttr-toggle-sidebar ttr-material-button">
+                <i class="ti-close ttr-open-icon"></i>
+                <i class="ti-menu ttr-close-icon"></i>
+            </div>
+            <div class="ttr-logo-box">
+                <div>
+                    <a href="../../admin/index.html" class="ttr-logo">
+					    <img alt="" class="ttr-logo-mobile" src="{{url_for('static', filename='images/logo-white.png')}}" style="width: 200px; height: 36px;">
+						<img alt="" class="ttr-logo-desktop" src="{{url_for('static', filename='images/logo-white.png')}}" style="width: 200px; height: 36px;">
+					</a>
+                </div>
+            </div>
+            <div class="ttr-header-menu">
+            </div>
+            <div class="ttr-header-right ttr-with-seperator">
+                <ul class="ttr-header-navigation">
+
+                    <li>
+                        <a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="{{url_for('static', filename='images/admin.jpg')}}" style=" background-color:#FFFFFF; height: 45px; width: 45px;border-radius: 50%;"></a>
+                        <div class="ttr-header-submenu noti-menu">
+                            <div class="ttr-notify-header">
+                                <span class="ttr-notify-text-top">Robert Wick</span>
+                                <span class="ttr-notify-text">ADMIN</span>
+                            </div>
+                            <div class="noti-box-list">
+                              <ul>
+                                   
+                                   
+                                <hr>
+                                <a href="{{url_for('dashboard', logged_user_email=logged_user_email)}}" style="text-decoration: none;color: black;">
+                                    <li>
+
+                                        <span class="notification-icon dashbg-yellow">
+                  <i class="fa fa-calendar" style="font-size: 18px;"></i>
+                </span>
+                                        <span style="font-size: 22px;" style="color: black!important;">
+                  Dashboard
+                </span>
+                                    </li>
+                                </a>
+                                <hr>
+                                <a href="{{url_for('login')}}" style="text-decoration: none;color: black;">
+                                    <li>
+                                        <span class="notification-icon dashbg-red">
+                  <i class="fa fa-sign-out" style="font-size: 18px;"></i>
+                </span>
+                                        <span style="font-size: 22px;" style="color: black!important;">
+                  Logout
+                </span>
+                                    </li>
+                                </a>
+                            </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="ttr-sidebar">
+        <div class="ttr-sidebar-wrapper content-scroll">
+
+
+
+            <div class="ttr-sidebar-logo ttrSidebarLogo" style="background-position: center;background-repeat: no-repeat;background-size: cover;height: 160px;">
+                <div class="ttr-sidebar-toggle-button">
+                    <i class="ti-arrow-left"></i>
+                </div>
+                <div style="padding-left: 12px; padding-top: 12px;">
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/admin.jpg')}}" style="background: #FFFFFF; width: 48px; height: 48px; border-radius: 50%;" alt="User">
+                    </div>
+                    <div style="height: 8px;">
+                    </div>
+
+                    <div class="info-container">
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 15px;"><b>Robert Wick</b></div>
+                        <div class="email" style="color: white; font-size: 12px;">admin@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ttr-sidebar">
+                <div class="ttr-sidebar-wrapper content-scroll">
+
+
+                    <div class="ttr-sidebar-logo ttrSidebarnBg" style="background-position: center;background-repeat: no-repeat;background-size: cover;height: 160px;">
+                        <div class="ttr-sidebar-toggle-button">
+                            <i class="ti-arrow-left"></i>
+                        </div>
+                        <div style="padding-left: 12px; padding-top: 12px;">
+                            <div class="image">
+                                <img src="{{url_for('static', filename='images/admin.jpg')}}" style="background: #FFFFFF; width: 48px; height: 48px; border-radius: 50%;" alt="User">
+                            </div>
+                            <div style="height: 8px;">
+                            </div>
+
+                            <div class="info-container">
+                                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000000; font-size: 15px;"><b>Robert Wick</b></div>
+                                <div class="email" style="color: rgb(0, 0, 0); font-size: 12px;">admin@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="ttr-sidebar-navi">
+                        <ul>
+                          <li
+                            style="
+                              padding-left: 20px;
+                              padding-top: 5px;
+                              padding-bottom: 5px;
+                              background-color: #009dff;
+                              margin-top: 0px;
+                              margin-bottom: 0px;
+                            "
+                          >
+                            <span class="ttr-label" style="color: WHITE; font-weight: 500"
+                              ><b>MAIN MENU</b></span
+                            >
+                          </li>
+                          <li style="margin-top: 0px">
+                            <a
+                              href="{{url_for('dashboard', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-home"></i></span>
+                              <span class="ttr-label"><b>Dashboard</b></span>
+                            </a>
+                          </li>
+                          <li style="margin-top: 0px">
+                            <a
+                              href="{{url_for('LieDetectionSession', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-home"></i></span>
+                              <span class="ttr-label"><b>Lie Detection Sessions</b></span>
+                            </a>
+                          </li>
+                          <li style="margin-top: 0px">
+                            <a
+                              href="{{url_for('ManageRecognition', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-user"></i></span>
+                              <span class="ttr-label"><b>Manage Recognition</b></span>
+                            </a>
+                          </li>
+          
+                          <li>
+                            <a
+                              href="{{url_for('ManageUsers', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                              <span class="ttr-label"><b>Manage Users</b></span>
+                            </a>
+                          </li>
+          
+                          <li style="margin-top: 0px">
+                            <a
+                              href="{{url_for('HelpAndSupport', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                              <span class="ttr-label"><b>Help and Support</b></span>
+                            </a>
+                          </li>
+                          <li style="margin-top: 0px">
+                            <a
+                              href="{{url_for('settingsAndPreference', logged_user_email=logged_user_email)}}"
+                              class="ttr-material-button"
+                            >
+                              <span class="ttr-icon"><i class="ti-home"></i></span>
+                              <span class="ttr-label"><b>Settings and Preference</b></span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<main class="ttr-wrapper" style="background-color: #FBFBFB;">
+
+    
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">Change password</h4>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 m-b30">
+                <br>
+                
+
+                <form class="edit-profile" action="/updatePassword" method="post">
+                    <div class="">
+                        <div class="form-group row">
+                          <input
+                                                type="hidden"
+                                                name="logged_user_email"
+                                                value="{{logged_user_email}}"
+                                              />
+                            <label class="col-sm-2 col-form-label">Current Password</label>
+                            <div class="col-sm-7">
+                                <input class="form-control"  type="password" name="cpass" minlength="5" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">New Password</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="password" name="npass" minlength="5" maxlength="20" id="password" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Re Type Password</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="password" name="rpass" minlength="5" maxlength="20" id="confirm_password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-7">
+                            <label class="col-sm-2 col-form-label" id="message"></label><br>
+                            <button name="save_pass" type="submit" class="btn brown radius-xl" style="color: white;"><i class="ti-lock"></i> Save changes</button>
+                            <a href="index" class="btn-secondry radius-xl"><i class="ti-arrow-left"></i> Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+
+<!-------------------------------------------------------darkmode code--------------------------------------------->
+<style>
+    /* Base styles */
+    body {
+      transition: background-color 0.25s, color 0.25s;
+    }
+  
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  
+    /* The switch - the box around the slider */
+    #theme-toggle-button {
+      font-size: 17px;
+      position: relative;
+      display: inline-block;
+      width: 7em;
+      cursor: pointer;
+    }
+  
+    /* Hide default HTML checkbox */
+    #toggle {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    #container,
+    #patches,
+    #stars,
+    #button,
+    #sun,
+    #moon,
+    #cloud {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 0.25s;
+    }
+  
+    /* night sky background */
+    #toggle:checked + svg #container {
+      fill: #2b4360;
+    }
+  
+    /* move button to right when checked */
+    #toggle:checked + svg #button {
+      transform: translate(28px, 2.333px);
+    }
+  
+    /* show/hide sun and moon based on checkbox state */
+    #sun {
+      opacity: 1;
+    }
+  
+    #toggle:checked + svg #sun {
+      opacity: 0;
+    }
+  
+    #moon {
+      opacity: 0;
+    }
+  
+    #toggle:checked + svg #moon {
+      opacity: 1;
+    }
+  
+    /* show or hide background items on checkbox state */
+    #cloud {
+      opacity: 1;
+    }
+  
+    #toggle:checked + svg #cloud {
+      opacity: 0;
+    }
+  
+    #stars {
+      opacity: 0;
+    }
+  
+    #toggle:checked + svg #stars {
+      opacity: 1;
+    }
+  </style>
+  </head>
+  <body>
+  <div class="db-breadcrumb">
+    <h4 class="breadcrumb-title">Dark Mode</h4>
+  </div>
+  <label id="theme-toggle-button">
+    <input type="checkbox" id="toggle">
+    <svg viewBox="0 0 69.667 44" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(3.5 3.5)" data-name="Component 15 – 1" id="Component_15_1">
+        <g filter="url(#container)" transform="matrix(1, 0, 0, 1, -3.5, -3.5)">
+          <rect fill="#83cbd8" transform="translate(3.5 3.5)" rx="17.5" height="35" width="60.667" data-name="container" id="container"></rect>
+        </g>
+        <g transform="translate(2.333 2.333)" id="button">
+          <g data-name="sun" id="sun">
+            <g filter="url(#sun-outer)" transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+              <circle fill="#f8e664" transform="translate(5.83 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="sun-outer" id="sun-outer-2"></circle>
+            </g>
+            <g filter="url(#sun)" transform="matrix(1, 0, 0, 1, -5.83, -5.83)">
+              <path fill="rgba(246,254,247,0.29)" transform="translate(9.33 9.33)" d="M11.667,0A11.667,11.667,0,1,1,0,11.667,11.667,11.667,0,0,1,11.667,0Z" data-name="sun" id="sun-3"></path>
+            </g>
+            <circle fill="#fcf4b9" transform="translate(8.167 8.167)" r="7" cy="7" cx="7" id="sun-inner"></circle>
+          </g>
+          <g data-name="moon" id="moon">
+            <g filter="url(#moon)" transform="matrix(1, 0, 0, 1, -31.5, -5.83)">
+              <circle fill="#cce6ee" transform="translate(31.5 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="moon" id="moon-3"></circle>
+            </g>
+            <g fill="#a6cad0" transform="translate(-24.415 -1.009)" id="patches">
+              <circle transform="translate(43.009 4.496)" r="2" cy="2" cx="2"></circle>
+              <circle transform="translate(39.366 17.952)" r="2" cy="2" cx="2" data-name="patch"></circle>
+              <circle transform="translate(33.016 8.044)" r="1" cy="1" cx="1" data-name="patch"></circle>
+              <circle transform="translate(51.081 18.888)" r="1" cy="1" cx="1" data-name="patch"></circle>
+              <circle transform="translate(33.016 22.503)" r="1" cy="1" cx="1" data-name="patch"></circle>
+              <circle transform="translate(50.081 10.53)" r="1.5" cy="1.5" cx="1.5" data-name="patch"></circle>
+            </g>
+          </g>
+        </g>
+        <g filter="url(#cloud)" transform="matrix(1, 0, 0, 1, -3.5, -3.5)">
+          <path fill="#fff" transform="translate(-3466.47 -160.94)" d="M3512.81,173.815a4.463,4.463,0,0,1,2.243.62.95.95,0,0,1,.72-1.281,4.852,4.852,0,0,1,2.623.519c.034.02-.5-1.968.281-2.716a2.117,2.117,0,0,1,2.829-.274,1.821,1.821,0,0,1,.854,1.858c.063.037,2.594-.049,3.285,1.273s-.865,2.544-.807,2.626a12.192,12.192,0,0,1,2.278.892c.553.448,1.106,1.992-1.62,2.927a7.742,7.742,0,0,1-3.762-.3c-1.28-.49-1.181-2.65-1.137-2.624s-1.417,2.2-2.623,2.2a4.172,4.172,0,0,1-2.394-1.206,3.825,3.825,0,0,1-2.771.774c-3.429-.46-2.333-3.267-2.2-3.55A3.721,3.721,0,0,1,3512.81,173.815Z" data-name="cloud" id="cloud"></path>
+        </g>
+        <g fill="#def8ff" transform="translate(3.585 1.325)" id="stars">
+          <path transform="matrix(-1, 0.017, -0.017, -1, 24.231, 3.055)" d="M.774,0,.566.559,0,.539.458.933.25,1.492l.485-.361.458.394L1.024.953,1.509.592.943.572Z"></path>
+          <path transform="matrix(-0.777, 0.629, -0.629, -0.777, 23.185, 12.358)" d="M1.341.529.836.472.736,0,.505.46,0,.4.4.729l-.231.46L.605.932l.4.326L.9.786Z" data-name="star"></path>
+          <path transform="matrix(0.438, 0.899, -0.899, 0.438, 23.177, 29.735)" d="M.015,1.065.475.9l.285.365L.766.772l.46-.164L.745.494.751,0,.481.407,0,.293.285.658Z" data-name="star"></path>
+          <path transform="translate(12.677 0.388) rotate(104)" d="M1.161,1.6,1.059,1,1.574.722.962.607.86,0,.613.572,0,.457.446.881.2,1.454l.516-.274Z" data-name="star"></path>
+          <path transform="matrix(-0.07, 0.998, -0.998, -0.07, 11.066, 15.457)" d="M.873,1.648l.114-.62L1.579.945,1.03.62,1.144,0,.706.464.157.139.438.7,0,1.167l.592-.083Z" data-name="star"></path>
+          <path transform="translate(8.326 28.061) rotate(11)" d="M.593,0,.638.724,0,.982l.7.211.045.724.36-.64.7.211L1.342.935,1.7.294,1.063.552Z" data-name="star"></path>
+          <path transform="translate(5.012 5.962) rotate(172)" d="M.816,0,.5.455,0,.311.323.767l-.312.455.516-.215.323.456L.827.911,1.343.7.839.552Z" data-name="star"></path>
+          <path transform="translate(2.218 14.616) rotate(169)" d="M1.261,0,.774.571.114.3.487.967,0,1.538.728,1.32l.372.662.047-.749.728-.218L1.215.749Z" data-name="star"></path>
+        </g>
+      </g>
+    </svg>
+  </label>
+  <script>
+    const toggle = document.getElementById('toggle');
+    const body = document.body;
+  
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <div class="ttr-overlay"></div>
+
+    <script src="{{url_for('static', filename='dashboard/assets/js/jquery.min.js')}}"></script>
+    <script type="text/javascript">
+        $('#deyt').change(function() {
+            var date = $(this).val();
+            $("#deytend").attr("min", date);
+        });
+    </script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap-select/bootstrap-select.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/magnific-popup/magnific-popup.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/counter/waypoints-min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/counter/counterup.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/imagesloaded/imagesloaded.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/masonry/masonry.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/masonry/filter.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/owl-carousel/owl.carousel.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/scroll/scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/functions.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/chart/chart.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/admin.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/calendar/moment.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var charge = 0;
+            $(".charged").each(function() {
+                if ($(this).text() != "0") {
+                    charge = charge + parseInt($(this).text().slice(2));
+                }
+            });
+            if (isNaN(charge)) {
+                charge = 0;
+            }
+            $('#total-charged').html('Total Charged: ₱' + charge);
+
+
+            var total = 0;
+            $(".paid").each(function() {
+                if ($(this).text() != "0") {
+                    total = total + parseInt($(this).text().slice(2));
+                }
+            });
+            if (isNaN(total)) {
+                total = 0;
+            }
+            $('#total-price').html('Total Paid: ₱' + total);
+
+
+            $('#table').DataTable();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link
+      rel="icon"
+      href="{{url_for('static',filename='images/icon.png')}}"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{url_for('static',filename='images/icon.png')}}"
+    />
+
+    <title>Facial Recognition</title>
+
+    <style>
+      .ttrSidebarLogo {
+        background-image: url("{{url_for('static',filename='images/po1.gif')}}");
+      }
+
+      .ttrSidebarBg {
+        background-image: url("{{url_for('static',filename='images/background1.gif')}}");
+      }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/dataTables.bootstrap4.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/assets.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/vendors/calendar/fullcalendar.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/typography.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/shortcodes/shortcodes.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='dashboard/assets/css/dashboard.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/froala_editor.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/froala_style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/code_view.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/colors.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/emoticons.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/image_manager.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/image.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/line_breaker.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/table.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/char_counter.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/video.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/fullscreen.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/file.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='froala/css/plugins/quick_insert.css')}}"
+    />
+    <style type="text/css">
+      .btn.dropdown-toggle.btn-default:hover {
+        color: #000 !important;
+      }
+
+      .btn.dropdown-toggle.btn-default:focus {
+        color: #000 !important;
+      }
+
+      .widget-card .icon {
+        position: absolute;
+        top: auto;
+        bottom: -20px;
+        right: 5px;
+        z-index: 0;
+        font-size: 65px;
+        color: rgba(0, 0, 0, 0.15);
+      }
+
+      tbody tr:hover {
+        background-color: #d4d4d4;
+      }
+    </style>
+  </head>
+  <style type="text/css">
+    /*===================== 	Premery bg color =====================*/
+
+    :root {
+      --primary: #009dff;
+      --sc-primary: #009dff;
+    }
+
+    /* Hex */
+
+    .bg-primary,
+    .btn,
+    .comments-area .comment-form p input[type="submit"],
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus,
+    .feature-filters .active > [class*="btn"],
+    .list-num-count > li:before,
+    .pagination-bx.primary .pagination > li > a,
+    .pagination-bx.primary .pagination > li > span,
+    button.back-to-top,
+    .rev-btn {
+      background-color: #009dff;
+    }
+
+    /*Hex color :hover */
+
+    .btn:active,
+    .btn:hover,
+    .btn:focus,
+    .active > .btn,
+    .bg-primary-dark,
+    .pagination > li > a:hover,
+    .pagination > li > span:hover,
+    .pagination > li > a:focus,
+    .pagination > li > span:focus,
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus,
+    .sidenav .closebtn:hover,
+    .sidenav .closebtn:focus,
+    .owl-btn-1.primary .owl-prev:hover,
+    .owl-btn-1.primary .owl-next:hover,
+    .owl-btn-2.primary .owl-prev:hover,
+    .owl-btn-2.primary .owl-next:hover,
+    .pagination-bx.primary .pagination > li > a:hover,
+    .pagination-bx.primary .pagination > li > span:hover,
+    .pagination-bx.primary .pagination > li.active > span,
+    .pagination-bx.primary .pagination > li.active > a {
+      background-color: #009dff;
+    }
+
+    /*===================== 	Premery text color =====================*/
+
+    a,
+    .text-primary,
+    .primary li:before,
+    .menu-links .nav > li.active > a,
+    .menu-links .nav > li:hover > a,
+    .menu-links .nav > li .mega-menu > li ul a:hover,
+    .menu-links .nav > li .sub-menu li:hover > a,
+    footer a:active,
+    footer a:focus,
+    footer a:hover,
+    footer h1 a,
+    footer h2 a,
+    footer h3 a,
+    footer h4 a,
+    footer h5 a,
+    footer h6 a,
+    footer p a,
+    .testimonial-1 .testimonial-position,
+    .acod-head a:after,
+    .acod-head a,
+    .acod-head a:hover,
+    .acod-head a.collapsed:hover,
+    .ttr-tabs .nav-tabs > li > a i,
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover,
+    .btn.outline,
+    .btn-link:hover {
+      color: #009dff;
+    }
+
+    /*===================== 	Secondery bg color =====================*/
+
+    .bg-secondry {
+      background-color: #009dff;
+    }
+
+    /*===================== 	Secondery text color =====================*/
+
+    .text-secondry {
+      color: #009dff;
+    }
+
+    .ovpr-light:after,
+    .ovpr-middle:after,
+    .ovpr-dark:after,
+    .ovpr:after,
+    .bg-primary {
+      background-color: #009dff;
+    }
+
+    .footer-top,
+    .footer-bottom {
+      background-color: #009dff;
+    }
+
+    .ovbl-middle::after,
+    .ovbl-light::after,
+    .ovbl-dark::after {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffb700+0,#009dff+50,110038+100 */
+      background: #009dff;
+      /* Old browsers */
+      background: -moz-linear-gradient(
+        45deg,
+        #009dff 0%,
+        #009dff 50%,
+        #009dff 100%
+      );
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        45deg,
+        #009dff 0%,
+        #009dff 50%,
+        #009dff 100%
+      );
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg, #009dff 0%, #009dff 50%, #009dff 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+      /* IE6-9 fallback on horizontal gradient */
+    }
+
+    .ttr-notify-header::after,
+    .widget-bg1,
+    .ttr-search-bar,
+    .ttr-header,
+    .ovpr-dark:after,
+    .pricingtable-main,
+    .account-head:after {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009dff+0,3f189a+100 */
+      background: #009dff;
+      /* Old browsers */
+      background: -moz-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg, #009dff 0%, #009dff 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+      /* IE6-9 fallback on horizontal gradient */
+    }
+
+    /* Secondry Color */
+
+    .portfolio-bx .portfolio-info-bx,
+    .btn.outline:hover,
+    .course-info-list ul li a.active,
+    .course-info-list ul li a:hover,
+    .btn,
+    .profile-tabnav .nav li a.active,
+    button.back-to-top,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev,
+    .upcoming-event-carousel.owl-btn-1 .owl-next,
+    .courses-carousel .owl-nav .owl-next,
+    .courses-carousel .owl-nav .owl-prev,
+    .recent-news-carousel .owl-nav .owl-next,
+    .recent-news-carousel .owl-nav .owl-prev,
+    .testimonial-carousel .owl-nav .owl-next,
+    .testimonial-carousel .owl-nav .owl-prev {
+      background-color: #009dff;
+      color: #fff;
+    }
+
+    .footer_widget ul li a:hover,
+    [class*="ovbl-"] .counter-style-1 .counter-text,
+    .header-transparent .secondary-menu .btn-link:hover,
+    .header-transparent .menu-links .nav > li:hover > a,
+    .header-transparent .menu-links .nav > li.active > a {
+      color: #009dff;
+    }
+
+    .course-info-list ul li a.active:hover,
+    .course-info-list ul li a:hover,
+    .btn:hover,
+    .profile-tabnav .nav li a.active:hover,
+    button.back-to-top:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-next:hover,
+    .courses-carousel .owl-nav .owl-next:hover,
+    .courses-carousel .owl-nav .owl-prev:hover,
+    .recent-news-carousel .owl-nav .owl-next:hover,
+    .recent-news-carousel .owl-nav .owl-prev:hover,
+    .testimonial-carousel .owl-nav .owl-next:hover,
+    .testimonial-carousel .owl-nav .owl-prev:hover {
+      background-color: #009dff;
+      color: #fff;
+    }
+
+    .heading-bx.left .title-head {
+      border-color: #009dff;
+    }
+  </style>
+
+  <body
+    class="ttr-opened-sidebar ttr-pinned-sidebar"
+    style="background-color: #fbfbfb"
+  >
+  <button id="open-btn">Report Requested</button>
+    <header class="ttr-header">
+      <div class="ttr-header-wrapper">
+        <div class="ttr-toggle-sidebar ttr-material-button">
+          <i class="ti-close ttr-open-icon"></i>
+          <i class="ti-menu ttr-close-icon"></i>
+        </div>
+        <div class="ttr-logo-box">
+          <div>
+            <a href="{{url_for('dashboard', logged_user_email=logged_user_email)}}" class="ttr-logo">
+              <img
+                alt=""
+                class="ttr-logo-mobile"
+                src="{{url_for('static',filename='images/logo-white.png')}}"
+                style="width: 200px; height: 36px"
+              />
+              <img
+                alt=""
+                class="ttr-logo-desktop"
+                src="{{url_for('static',filename='images/logo-white.png')}}"
+                style="width: 200px; height: 36px"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="ttr-header-menu"></div>
+        <div class="ttr-header-right ttr-with-seperator">
+          <ul class="ttr-header-navigation">
+            <li>
+              <a href="#" class="ttr-material-button ttr-submenu-toggle"
+                ><img
+                  src="{{url_for('static',filename='images/admin.jpg')}}"
+                  style="
+                    background-color: #ffffff;
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 50%;
+                  "
+              /></a>
+              <div class="ttr-header-submenu noti-menu">
+                <div class="ttr-notify-header">
+                  <span class="ttr-notify-text-top">{{logged_user_email}}</span>
+                  <span class="ttr-notify-text">ADMIN</span>
+                </div>
+                <div class="noti-box-list">
+                  <ul>
+                    <hr />
+                    <a
+                    href="{{url_for('dashboard')}}"
+                      style="text-decoration: none; color: black"
+                    >
+                      <li>
+                        <span class="notification-icon dashbg-yellow">
+                          <i class="fa fa-calendar" style="font-size: 18px"></i>
+                        </span>
+                        <span
+                          style="font-size: 22px"
+                          style="color: black !important"
+                        >
+                          Dashboard
+                        </span>
+                      </li>
+                    </a>
+                    <hr />
+                    <a
+                      href="{{url_for('login')}}"
+                      style="text-decoration: none; color: black"
+                    >
+                      <li>
+                        <span class="notification-icon dashbg-red">
+                          <i class="fa fa-sign-out" style="font-size: 18px"></i>
+                        </span>
+                        <span
+                          style="font-size: 22px"
+                          style="color: black !important"
+                        >
+                          Logout
+                        </span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ttr-sidebar">
+      <div class="ttr-sidebar-wrapper content-scroll">
+        <div
+          class="ttr-sidebar-logo ttrSidebarLogo"
+          style="
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 160px;
+          "
+        >
+          <div class="ttr-sidebar-toggle-button">
+            <i class="ti-arrow-left"></i>
+          </div>
+          <div style="padding-left: 12px; padding-top: 12px">
+            <div class="image">
+              <img
+                src="{{url_for('static',filename='images/admin.jpg')}}"
+                style="
+                  background: #ffffff;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 50%;
+                "
+                alt="User"
+              />
+            </div>
+            <div style="height: 8px"></div>
+
+            <div class="info-container">
+              <div
+                class="name"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style="color: white; font-size: 15px"
+              >
+                <!-- <b>Robert Wick</b> -->
+              </div>
+              <div class="email" style="color: white; font-size: 12px">
+                {{logged_user_email}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ttr-sidebar">
+          <div class="ttr-sidebar-wrapper content-scroll">
+            <div
+              class="ttr-sidebar-logo ttrSidebarBg"
+              style="
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 160px;
+              "
+            >
+              <div class="ttr-sidebar-toggle-button">
+                <i class="ti-arrow-left"></i>
+              </div>
+              <div style="padding-left: 12px; padding-top: 12px">
+                <style>
+                  .info-container {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    background-color: #ffffff;
+                    padding: 10px;
+                  }
+                  .name,
+                  .email {
+                    margin-bottom: 5px;
+                  }
+                </style>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                  const openBtn = document.getElementById("open-btn");
+                        const floatingWindow =
+                          document.getElementById("floating-window");
+                        const notificationBadge =
+                          document.getElementById("notification-badge");
+
+                        openBtn.addEventListener("click", () => {
+                          floatingWindow.style.display = "block";
+                          notificationBadge.style.display = "none"; // Hide the notification badge when button is clicked
+                        });
+
+                        const reportRequested =
+                          localStorage.getItem("reportRequested");
+                        if (reportRequested === "true") {
+                          notificationBadge.style.display = "block"; // Show the notification badge if report is requested
+                          const messageText =
+                            localStorage.getItem("messageText");
+                          const contentDiv =
+                            floatingWindow.querySelector(".content");
+                          contentDiv.textContent = messageText;
+                        }
+
+                        const reportRequests =
+                          parseInt(localStorage.getItem("reportRequests")) || 0;
+                        if (reportRequests > 0) {
+                          notificationBadge.textContent = reportRequests;
+                          notificationBadge.style.display = "block";
+                        }
+
+                        function closeFloatingWindow() {
+                          floatingWindow.style.display = "none";
+                        }
+                  $(document).ready(function () {
+                    $(".image").hover(
+                      function () {
+                        $(".info-container").stop().slideDown();
+                      },
+                      function () {
+                        $(".info-container").stop().slideUp();
+                      }
+                    );
+                  });
+                </script>
+
+                <div class="image">
+                  <!-- Added class="image" here -->
+                  <img
+                    src="{{url_for('static',filename='images/admin.jpg')}}"
+                    style="
+                      background: #ffffff;
+                      width: 48px;
+                      height: 48px;
+                      border-radius: 50%;
+                    "
+                    alt="User"
+                  />
+                </div>
+                <div style="height: 8px"></div>
+
+                <div class="info-container">
+                  <div class="name" style="color: #000000; font-size: 15px">
+                    <!-- <b>Robert Wick</b> -->
+                  </div>
+                  <div class="email" style="color: #000000; font-size: 12px">
+                    {{logged_user_email}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="ttr-sidebar-navi">
+              <ul>
+                <li
+                  style="
+                    padding-left: 20px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    background-color: #009dff;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                  "
+                >
+                  <span class="ttr-label" style="color: WHITE; font-weight: 500"
+                    ><b>MAIN MENU</b></span
+                  >
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('dashboard', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Dashboard</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('LieDetectionSession', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Lie Detection Sessions</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a>
+                    <span class="ttr-icon"><i class="ti-user"></i></span>
+                    <span class="ttr-label"><b>Manage Recognition</b></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="{{url_for('ManageUsers', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                    <span class="ttr-label"><b>Manage Users</b></span>
+                  </a>
+                </li>
+
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('HelpAndSupport', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                    <span class="ttr-label"><b>Help and Support</b></span>
+                  </a>
+                </li>
+                <li style="margin-top: 0px">
+                  <a
+                    href="{{url_for('settingsAndPreference', logged_user_email=logged_user_email)}}"
+                    class="ttr-material-button"
+                  >
+                    <span class="ttr-icon"><i class="ti-home"></i></span>
+                    <span class="ttr-label"><b>Settings and Preference</b></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <body>
+      <style>
+        #profile-table-facial-recognition {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        #profile-table-facial-recognition th,
+        #profile-table-facial-recognition td {
+          padding: 8px;
+          text-align: left;
+          border: 1px solid #ddd;
+        }
+
+        #profile-table-facial-recognition th {
+          background-color: #f2f2f2;
+        }
+
+        #profile-table-facial-recognition tbody tr:hover {
+          background-color: #f5f5f5;
+        }
+
+        .actions {
+          display: flex;
+          gap: 10px; /* Adjusted gap between buttons */
+        }
+
+        .action-buttons button {
+          padding: 5px 10px;
+          cursor: pointer;
+          background-color: #4caf50; /* Green */
+          border: none;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          border-radius: 4px;
+        }
+
+        .action-buttons button:hover {
+          background-color: #45a049;
+        }
+
+        .action-buttons input {
+          padding: 5px 10px;
+          cursor: pointer;
+          background-color: #4caf50; /* Green */
+          border: none;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          border-radius: 4px;
+        }
+
+        .action-buttons input:hover {
+          background-color: #45a049;
+        }
+        .loading {
+          border: 4px solid rgba(0, 0, 0, 0.1);
+          border-left-color: #4caf50;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          animation: spin 1s linear infinite;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 5px; /* Add spacing between the loading animation and button text */
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+      <main class="ttr-wrapper">
+        <div class="container-fluid">
+          <div class="col-lg-12 m-b30">
+            <br />
+            <div class="row">
+              <div class="col-lg-6 m-b30">
+                <div class="heading-bx left">
+                  <h2 class="m-b10 title-head">
+                    Manage Recognition <span></span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <section>
+              <div class="container">
+                <table id="profile-table-facial-recognition">
+                  <thead>
+                    <tr>
+                      <th>User ID</th>
+                      <th>User Name</th>
+                      <th>Lie Detected</th>
+                      <th>Truth</th>
+                      <th>Deceit</th>
+                      <th>Interaction Date</th>
+                      <th>Location</th>
+                      <th>Video</th>
+                      <th>Report</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in data %}
+                    <tr>
+                      <td>{{ item.user_detail_id }}</td>
+                      <td>{{ item.full_name }}</td>
+                      <td>{{ item.results }}</td>
+                      <td>{{ item.positive }}</td>
+                      <td>{{ item.negative }}</td>
+                      <!-- Assuming this is a static value for demonstration -->
+                      <td>{{ item.interaction_date }}</td>
+                      <td>{{ item.address }}</td>
+                      <td>
+                        <div class="action-buttons">
+                          <form
+                            action="/downloadVideo"
+                            method="POST"
+                          >
+                            <input
+                              type="hidden"
+                              name="user_detail_id"
+                              value="{{ item.full_name }}"
+                            />
+                            <button type="submit">Download Video</button>
+                          </form>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="action-buttons">
+                          <!-- <button onclick="processReport(this)">
+                            Process Report
+                          </button> -->
+                          <form
+                            action="/requestReportbyAdmin"
+                            method="POST"
+                          >
+                            <input
+                              type="hidden"
+                              name="user_detail_id"
+                              value="{{ item.user_detail_id }}"
+                            />
+                            <button type="submit">Process report</button>
+                          </form>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="action-buttons">
+                          <form
+                            action="/deleteRecognitioinUsingIDByAdmin"
+                            method="POST"
+                          >
+                          <input type="text" hidden name="logged_user_email" value="{{logged_user_email}}">
+
+                            <input
+                              type="hidden"
+                              name="user_detail_id"
+                              value="{{ item.user_detail_id }}"
+                            />
+                            <button type="submit">Delete</button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <script>
+        // Listen for the custom event triggered by the second page
+        document.addEventListener("reportUploaded", function () {
+          // Update UI or perform any action to handle the uploaded report
+          // For example, enable the download button
+          const downloadButton = document.getElementById("downloadButton");
+          downloadButton.disabled = false;
+        });
+
+        // JavaScript for sending report request
+        function processReport(button) {
+          localStorage.setItem("reportRequested", "true");
+          localStorage.setItem("messageText", "Report requested for Vice.");
+          let currentRequests =
+            parseInt(localStorage.getItem("reportRequests")) || 0;
+          currentRequests++;
+          localStorage.setItem("reportRequests", currentRequests);
+          button.innerHTML = '<span class="loading"></span> Processing...';
+          setTimeout(function () {
+            button.parentNode.innerHTML =
+              '<button id="downloadButton" onclick="downloadReport()">Download Report</button>'; // Change button to Download
+            const reportAvailable = localStorage.getItem("reportAvailable");
+            if (reportAvailable === "true") {
+              const downloadButton = document.getElementById("downloadButton");
+              downloadButton.disabled = false;
+            }
+          }, 3000); // Change 3000 to the duration of your loading process in milliseconds
+        }
+
+        function downloadReport() {
+          // Check if the report is available
+          const reportAvailable = localStorage.getItem("reportAvailable");
+          if (reportAvailable === "true") {
+            // Generate download link for the report
+            const reportData = localStorage.getItem("reportData");
+            const blob = new Blob([reportData], { type: "text/html" });
+            const url = URL.createObjectURL(blob);
+            // Create a link element and trigger download
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "report.html";
+            a.click();
+            // Revoke the URL to release resources
+            URL.revokeObjectURL(url);
+          } else {
+            alert("Report not available.");
+          }
+        }
+      </script>
+    </body>
+
+    <div class="ttr-overlay"></div>
+
+    <script src="{{url_for('static',filename='dashboard/assets/js/jquery.min.js')}}"></script>
+
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap-select/bootstrap-select.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/magnific-popup/magnific-popup.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/counter/waypoints-min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/counter/counterup.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/imagesloaded/imagesloaded.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/masonry/masonry.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/masonry/filter.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/owl-carousel/owl.carousel.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/scroll/scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/functions.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/chart/chart.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/admin.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/vendors/calendar/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dashboard/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/froala_editor.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/align.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/char_counter.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/code_beautifier.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/code_view.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/colors.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/draggable.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/emoticons.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/entities.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/file.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/font_size.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/font_family.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/fullscreen.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/image.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/image_manager.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/line_breaker.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/inline_style.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/link.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/lists.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/paragraph_format.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/paragraph_style.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/quick_insert.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/quote.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/table.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/save.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/url.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='froala/js/plugins/video.min.js')}}"
+    ></script>
+    <script>
+      (function () {
+        new FroalaEditor("#edit", {
+          toolbarButtons: {
+            moreText: {
+              buttons: [
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "subscript",
+                "superscript",
+                "fontFamily",
+                "fontSize",
+                "textColor",
+                "backgroundColor",
+                "inlineClass",
+                "inlineStyle",
+                "clearFormatting",
+              ],
+              align: "left",
+              buttonsVisible: 3,
+            },
+            moreParagraph: {
+              buttons: ["alignLeft", "alignCenter", "formatOLSimple"],
+              align: "left",
+              buttonsVisible: 3,
+            },
+            moreMisc: {
+              buttons: ["undo", "redo"],
+              align: "right",
+            },
+          },
+          toolbarButtonsXS: [
+            ["undo", "redo"],
+            ["bold", "italic", "underline"],
+          ],
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      function readURL(input, id) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $("#display-img-" + id).attr("src", e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $(document).ready(function () {
+        $("#table").DataTable();
+      });
+
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+  </body>
+</html>

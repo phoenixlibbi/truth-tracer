@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='images/icon.png')}}" />
+
+    <title>Facial Recognition</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/assets.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/vendors/calendar/fullcalendar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/typography.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/shortcodes/shortcodes.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dashboard/assets/css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/froala_editor.css')}}">
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/froala_editor.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/froala_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/code_view.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/colors.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/emoticons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/image_manager.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/image.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/line_breaker.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/table.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/char_counter.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/video.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/fullscreen.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/file.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='froala/css/plugins/quick_insert.css')}}">
+    <style type="text/css">
+        .btn.dropdown-toggle.btn-default:hover {
+            color: #000 !important;
+        }
+
+        .btn.dropdown-toggle.btn-default:focus {
+            color: #000 !important;
+        }
+
+        .widget-card .icon {
+            position: absolute;
+            top: auto;
+            bottom: -20px;
+            right: 5px;
+            z-index: 0;
+            font-size: 65px;
+            color: rgba(0, 0, 0, 0.15);
+        }
+
+        tbody tr:hover {
+            background-color: #d4d4d4;
+        }
+
+
+        
+      .ttrSidebarLogo {
+        background-image: url("{{url_for('static',filename='images/po1.gif')}}");
+      }
+
+      .ttrSidebarBg {
+        background-image: url("{{url_for('static',filename='images/background1.gif')}}");
+      }
+    
+    </style>
+</head>
+<style type="text/css">
+    /*===================== 	Premery bg color =====================*/
+
+    :root {
+        --primary: #009dff;
+        --sc-primary: #009dff;
+    }
+
+    /* Hex */
+
+    .bg-primary,
+    .btn,
+    .comments-area .comment-form p input[type="submit"],
+    .pagination>.active>a,
+    .pagination>.active>span,
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover,
+    .pagination>.active>a:focus,
+    .pagination>.active>span:focus,
+    .feature-filters .active>[class*="btn"],
+    .list-num-count>li:before,
+    .pagination-bx.primary .pagination>li>a,
+    .pagination-bx.primary .pagination>li>span,
+    button.back-to-top,
+    .rev-btn {
+        background-color: #009dff;
+    }
+
+    /*Hex color :hover */
+
+    .btn:active,
+    .btn:hover,
+    .btn:focus,
+    .active>.btn,
+    .bg-primary-dark,
+    .pagination>li>a:hover,
+    .pagination>li>span:hover,
+    .pagination>li>a:focus,
+    .pagination>li>span:focus,
+    .pagination>.active>a,
+    .pagination>.active>span,
+    .pagination>.active>a:hover,
+    .pagination>.active>span:hover,
+    .pagination>.active>a:focus,
+    .pagination>.active>span:focus,
+    .sidenav .closebtn:hover,
+    .sidenav .closebtn:focus,
+    .owl-btn-1.primary .owl-prev:hover,
+    .owl-btn-1.primary .owl-next:hover,
+    .owl-btn-2.primary .owl-prev:hover,
+    .owl-btn-2.primary .owl-next:hover,
+    .pagination-bx.primary .pagination>li>a:hover,
+    .pagination-bx.primary .pagination>li>span:hover,
+    .pagination-bx.primary .pagination>li.active>span,
+    .pagination-bx.primary .pagination>li.active>a {
+        background-color: #009dff;
+    }
+
+    /*===================== 	Premery text color =====================*/
+
+    a,
+    .text-primary,
+    .primary li:before,
+    .menu-links .nav>li.active>a,
+    .menu-links .nav>li:hover>a,
+    .menu-links .nav>li .mega-menu>li ul a:hover,
+    .menu-links .nav>li .sub-menu li:hover>a,
+    footer a:active,
+    footer a:focus,
+    footer a:hover,
+    footer h1 a,
+    footer h2 a,
+    footer h3 a,
+    footer h4 a,
+    footer h5 a,
+    footer h6 a,
+    footer p a,
+    .testimonial-1 .testimonial-position,
+    .acod-head a:after,
+    .acod-head a,
+    .acod-head a:hover,
+    .acod-head a.collapsed:hover,
+    .ttr-tabs .nav-tabs>li>a i,
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover,
+    .btn.outline,
+    .btn-link:hover {
+        color: #009dff;
+    }
+
+    /*===================== 	Secondery bg color =====================*/
+
+    .bg-secondry {
+        background-color: #009dff;
+    }
+
+    /*===================== 	Secondery text color =====================*/
+
+    .text-secondry {
+        color: #009dff;
+    }
+
+    .ovpr-light:after,
+    .ovpr-middle:after,
+    .ovpr-dark:after,
+    .ovpr:after,
+    .bg-primary {
+        background-color: #009dff;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        background-color: #009dff;
+    }
+
+    .ovbl-middle::after,
+    .ovbl-light::after,
+    .ovbl-dark::after {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffb700+0,#009dff+50,110038+100 */
+        background: #009dff;
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg, #009dff 0%, #009dff 50%, #009dff 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #009dff 0%, #009dff 50%, #009dff 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #009dff 0%, #009dff 50%, #009dff 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+    }
+
+    .ttr-notify-header::after,
+    .widget-bg1,
+    .ttr-search-bar,
+    .ttr-header,
+    .ovpr-dark:after,
+    .pricingtable-main,
+    .account-head:after {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009dff+0,3f189a+100 */
+        background: #009dff;
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #009dff 0%, #009dff 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #009dff 0%, #009dff 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009dff', endColorstr='#009dff', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+    }
+
+    /* Secondry Color */
+
+    .portfolio-bx .portfolio-info-bx,
+    .btn.outline:hover,
+    .course-info-list ul li a.active,
+    .course-info-list ul li a:hover,
+    .btn,
+    .profile-tabnav .nav li a.active,
+    button.back-to-top,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev,
+    .upcoming-event-carousel.owl-btn-1 .owl-next,
+    .courses-carousel .owl-nav .owl-next,
+    .courses-carousel .owl-nav .owl-prev,
+    .recent-news-carousel .owl-nav .owl-next,
+    .recent-news-carousel .owl-nav .owl-prev,
+    .testimonial-carousel .owl-nav .owl-next,
+    .testimonial-carousel .owl-nav .owl-prev {
+        background-color: #009dff;
+        color: #fff;
+    }
+
+    .footer_widget ul li a:hover,
+    [class*="ovbl-"] .counter-style-1 .counter-text,
+    .header-transparent .secondary-menu .btn-link:hover,
+    .header-transparent .menu-links .nav>li:hover>a,
+    .header-transparent .menu-links .nav>li.active>a {
+        color: #009dff;
+    }
+
+    .course-info-list ul li a.active:hover,
+    .course-info-list ul li a:hover,
+    .btn:hover,
+    .profile-tabnav .nav li a.active:hover,
+    button.back-to-top:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-prev:hover,
+    .upcoming-event-carousel.owl-btn-1 .owl-next:hover,
+    .courses-carousel .owl-nav .owl-next:hover,
+    .courses-carousel .owl-nav .owl-prev:hover,
+    .recent-news-carousel .owl-nav .owl-next:hover,
+    .recent-news-carousel .owl-nav .owl-prev:hover,
+    .testimonial-carousel .owl-nav .owl-next:hover,
+    .testimonial-carousel .owl-nav .owl-prev:hover {
+        background-color: #009dff;
+        color: #fff;
+    }
+
+    .heading-bx.left .title-head {
+        border-color: #009dff;
+    }
+</style>
+
+<body class="ttr-opened-sidebar ttr-pinned-sidebar" style="background-color: #FBFBFB;">
+
+    <header class="ttr-header">
+        <div class="ttr-header-wrapper">
+            <div class="ttr-toggle-sidebar ttr-material-button">
+                <i class="ti-close ttr-open-icon"></i>
+                <i class="ti-menu ttr-close-icon"></i>
+            </div>
+            <div class="ttr-logo-box">
+                <div>
+                    <a href="{{url_for('userDashboard', logged_user_email=logged_user_email)}}" class="ttr-logo">
+					    <img alt="" class="ttr-logo-mobile" src="{{url_for('static', filename='images/logo-white.png')}}" style="width: 200px; height: 36px;">
+						<img alt="" class="ttr-logo-desktop" src="{{url_for('static', filename='images/logo-white.png')}}" style="width: 200px; height: 36px;">
+					</a>
+                </div>
+            </div>
+            <div class="ttr-header-menu">
+            </div>
+            <div class="ttr-header-right ttr-with-seperator">
+                <ul class="ttr-header-navigation">
+
+                    <li>
+                        <a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="{{url_for('static', filename='images/admin.jpg')}}" style=" background-color:#FFFFFF; height: 45px; width: 45px;border-radius: 50%;"></a>
+                        <div class="ttr-header-submenu noti-menu">
+                            <div class="ttr-notify-header">
+                                <span class="ttr-notify-text-top">{{logged_user_email}}</span>
+                                <span class="ttr-notify-text">USER</span>
+                            </div>
+                            <div class="noti-box-list">
+                                <ul>
+                                   
+                                   
+                                    <hr>
+                                    <a href="{{url_for('userDashboard', logged_user_email=logged_user_email)}}" style="text-decoration: none;color: black;">
+                                        <li>
+
+                                            <span class="notification-icon dashbg-yellow">
+											<i class="fa fa-calendar" style="font-size: 18px;"></i>
+										</span>
+                                            <span style="font-size: 22px;" style="color: black!important;">
+											Dashboard
+										</span>
+                                        </li>
+                                    </a>
+                                    <hr>
+                                    <a href="{{url_for('login')}}" style="text-decoration: none;color: black;">
+                                        <li>
+                                            <span class="notification-icon dashbg-red">
+											<i class="fa fa-sign-out" style="font-size: 18px;"></i>
+										</span>
+                                            <span style="font-size: 22px;" style="color: black!important;">
+											Logout
+										</span>
+                                        </li>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="ttr-sidebar">
+        <div class="ttr-sidebar-wrapper content-scroll">
+
+
+
+            <div class="ttr-sidebar-logo ttrSidebarLogo" style="background-position: center;background-repeat: no-repeat;background-size: cover;height: 160px;">
+                <div class="ttr-sidebar-toggle-button">
+                    <i class="ti-arrow-left"></i>
+                </div>
+                <div style="padding-left: 12px; padding-top: 12px;">
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/admin.jpg')}}" style="background: #FFFFFF; width: 48px; height: 48px; border-radius: 50%;" alt="User">
+                    </div>
+                    <div style="height: 8px;">
+                    </div>
+
+                    <div class="info-container">
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 15px;"><b>{{logged_user_email}}</b></div>
+                        <!-- <div class="email" style="color: white; font-size: 12px;">admin@gmail.com</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="ttr-sidebar">
+                <div class="ttr-sidebar-wrapper content-scroll">
+
+
+
+                    <div class="ttr-sidebar-logo ttrSidebarBg" style=" background-position: center; background-repeat: no-repeat; background-size: cover; height: 160px;">
+                        <div class="ttr-sidebar-toggle-button">
+                            <i class="ti-arrow-left"></i>
+                        </div>
+                        <div style="padding-left: 12px; padding-top: 12px;">
+                            <style>
+                                .info-container {
+                                    display: none;
+                                    position: absolute;
+                                    top: 60px;
+                                    left: 0;
+                                    background-color: #ffffff;
+                                    padding: 10px;
+                                }
+                                .name,
+                                .email {
+                                    margin-bottom: 5px;
+                                }
+                            </style>
+                    
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $(".image").hover(function() {
+                                        $(".info-container").stop().slideDown();
+                                    }, function() {
+                                        $(".info-container").stop().slideUp();
+                                    });
+                                });
+                            </script>
+                    
+                            <div class="image"> <!-- Added class="image" here -->
+                                <img src="{{url_for('static', filename='images/admin.jpg')}}" style="background: #FFFFFF; width: 48px; height: 48px; border-radius: 50%;" alt="User">
+                            </div>
+                            <div style="height: 8px;"></div>
+                    
+                            <div class="info-container">
+                                <div class="name" style="color: #000000; font-size: 15px;"><b>{{logged_user_email}}</b></div>
+                                <!-- <div class="email" style="color: #000000; font-size: 12px;">admin@gmail.com</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="ttr-sidebar-navi">
+                        <ul>
+                            <li style="padding-left: 20px; padding-top: 5px; padding-bottom: 5px; background-color: #009dff; margin-top: 0px; margin-bottom: 0px;">
+                                <span class="ttr-label" style="color: WHITE; font-weight: 500;"><b>MAIN MENU</b></span>
+                            </li>
+                            <li style="margin-top: 0px;">
+                                <a>
+                                    <span class="ttr-icon"><i class="ti-user"></i></span>
+                                    <span class="ttr-label"><b>Dashboard</b></span>
+                                </a>
+							</a>
+                            </li>
+                            <li style="margin-top: 0px;">
+                                <a href="{{url_for('userLieDetectionSession', logged_user_email=logged_user_email)}}" class="ttr-material-button">
+								<span class="ttr-icon"><i class="ti-home"></i></span>
+								<span class="ttr-label"><b>Lie Detection Sessions</b></span>
+							</a>
+                            </li>
+                            <li style="margin-top: 0px;">
+                               <a href="{{url_for('userManageRecognition', logged_user_email=logged_user_email)}}" class="ttr-material-button">
+								<span class="ttr-icon"><i class="ti-home"></i></span>
+								<span class="ttr-label"><b>Manage Recognition</b></span>
+							</a>
+                            </li>
+                            
+                            
+                            
+        
+                            <!--<li>
+                                    <a href="walk-in" class="ttr-material-button">
+                                        <span class="ttr-icon"><i class="ti-reload"></i></span>
+                                        <span class="ttr-label"><b>Manage Walk-In</b></span>
+                                    </a>
+                                </li>-->
+                            
+                                            <!-- <li>
+                                <a href="{{url_for('ManageUsers')}}" class="ttr-material-button">
+                                        <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                                        <span class="ttr-label"><b>Manage Users</b></span>
+                                    </a>
+                            </li> -->
+
+                            <!-- <li style="margin-top: 0px;">
+                                <a >
+                                    <span class="ttr-icon"><i class="ti-stats-up"></i></span>
+                                    <span class="ttr-label"><b>Help and Support</b></span>
+                                </a>
+                            </li>
+                            <li style="margin-top: 0px;">
+                                <a href="./Settings And Preference.html" class="ttr-material-button">
+								<span class="ttr-icon"><i class="ti-home"></i></span>
+								<span class="ttr-label"><b>Settings and Preference</b></span>
+							</a>
+                            </li> -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="ttr-wrapper" style="background-color: #FBFBFB;">
+        <div class="container-fluid">
+            <div class="col-lg-12 m-b30">
+                <br>
+                <div class="row">
+                    <div class="col-lg-6 m-b30">
+                        <div class="heading-bx left">
+                            <h2 class="m-b10 title-head">Dashboard Overview <span></span></h2>
+                        </div>
+                        
+                    </div>
+                    
+<!------------------------------------------------------------------------------------------------------->
+                    <div>
+                        <style>
+                            #container {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;
+                                padding: 20px;
+                            }
+                    
+                            #box {
+                                width: 960px; /* Adjust the width as needed */
+                                height: 720px; /* Adjust the height as needed */
+                                background-color: #f0f0f0;
+                                border: 1px solid #ccc;
+                                border-radius: 10px;
+                                padding: 20px;
+                                box-sizing: border-box;
+                                position: relative; /* Add position relative to use as a reference for absolute positioning */
+                            }
+                    
+                            #title {
+                                font-size: 18px;
+                                font-weight: bold;
+                                margin-bottom: 10px;
+                            }
+                    
+                            .video-container {
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                            }
+                    
+                            video {
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                            }
+                    
+                            #message {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: none;
+                                font-size: 24px; /* Adjust font size as needed */
+                                font-weight: bold;
+                            }
+                    
+                            .controls {
+                                margin-top: 20px;
+                            }
+                    
+                            .btn {
+                                display: inline-block;
+                                padding: 10px 20px;
+                                background-color: #007bff;
+                                color: #fff;
+                                border: none;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                transition: background-color 0.3s;
+                            }
+                    
+                            .btn:hover {
+                                background-color: #0056b3;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container-fluid">
+                            <div class="col-lg-12 m-b30">
+                                <br>
+                                <div class="row">
+                                    <div id="container">
+                                        <div id="box">
+                                            <div class="video-container" id="videoContainer">
+                                                <!-- <img src="{{ url_for('video') }}"/> -->
+                                                <!-- <video id="videoElement" autoplay></video> -->
+                                                <!-- <canvas id="canvas" style="display:none;"></canvas> -->
+                                                <!-- <div id="message">Lie Detection Loading...</div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <section>
+                                
+                                {% if data is not defined or data|length == 0 %}
+                                <button class="btn" id="startButton" disabled>Start Recording</button>
+                                {% else %}
+                                <button class="btn" id="startButton">Start Recording</button>
+                                {% endif %}
+                                <button class="btn" id="stopButton" style="display:none;">Stop Recording</button>
+                                <button class="btn" data-toggle="modal" data-target="#approve-55">
+                                    Add User Details
+                                </button>
+                                <section>
+                                  <div id="approve-55" class="modal fade" role="dialog">
+                                    <form
+                                      class="edit-profile m-b30"
+                                      method="POST"
+                                      action="/add_user_details_by_user"
+                                    >
+                                      <!-- enctype="multipart/form-data" -->
+                                      <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title">
+                                              <img
+                                                src="{{url_for('static',filename='images/icon.png')}}"
+                                                style="width: 30px; height: 30px"
+                                              />&nbsp;User Details
+                                            </h4>
+                                            <button
+                                              type="button"
+                                              class="close"
+                                              data-dismiss="modal"
+                                            >
+                                              &times;
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <input
+                                              type="hidden"
+                                              name="approve-id"
+                                              value="55"
+                                            />
+                                            <div class="row">
+                                              <input
+                                                type="hidden"
+                                                name="logged_user_email"
+                                                value="{{logged_user_email}}"
+                                              />
+                                              <div class="form-group col-4">
+                                                <label class="col-form-label"
+                                                  >Full Name</label
+                                                >
+                                                <input
+                                                  class="form-control"
+                                                  type="text"
+                                                  name="full_name"
+                                                  value=""
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <div class="form-group col-4">
+                                                <label class="col-form-label">Email</label>
+                                                <input
+                                                  class="form-control"
+                                                  name="email"
+                                                  type="text"
+                                                  value=""
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <div class="form-group col-4">
+                                                <label class="col-form-label"
+                                                  >Interaction Date
+                                                </label>
+                                                <input
+                                                  class="form-control"
+                                                  type="text"
+                                                  value=""
+                                                  name="interaction_date"
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <div class="form-group col-6">
+                                                <label class="col-form-label">Time</label>
+                                                <input
+                                                  class="form-control"
+                                                  name="interaction_time"
+                                                  type="text"
+                                                  value=""
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <div class="form-group col-6">
+                                                <label class="col-form-label">Address</label>
+                                                <input
+                                                  class="form-control"
+                                                  name="address"
+                                                  type="text"
+                                                  value=""
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <input type="text" hidden name="logged_user_email" value="{{logged_user_email}}">
+                                              <div class="form-group col-6">
+                                                <label class="col-form-label">Code</label>
+                                                <input
+                                                  class="form-control"
+                                                  name="code"
+                                                  type="text"
+                                                  value=""
+                                                  style="background-color: white"
+                                                />
+                                              </div>
+                                              <input
+                                                class="form-control"
+                                                name="user_detail_id"
+                                                hidden
+                                                type="text"
+                                                {% if user_detail_id %}
+                                                    value="{{ user_detail_id }}"
+                                                {% else %}
+                                                    value=""
+                                                {% endif %}
+                                                style="background-color: white"
+                                            />
+                                              <div class="form-group col-6">
+                                                <label class="col-form-label">Results</label>
+                                                <select
+                                                  class="form-control"
+                                                  id="lieDetectionResults"
+                                                  name="results"
+                                                >
+                                                  <option value="positive">Positive</option>
+                                                  <option value="negative">Negative</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button
+                                              type="submit"
+                                              class="btn Orange outline radius-xl"
+                                            >
+                                              <!-- data-dismiss="modal" -->
+                                              Begin test
+                                            </button>
+                                            <button
+                                              type="button"
+                                              class="btn green outline radius-xl"
+                                              data-dismiss="modal"
+                                            >
+                                              Reset Form
+                                            </button>
+                                            <button
+                                              type="submit"
+                                              class="btn red outline radius-xl"
+                                              formaction="/update_user_detail_addingVideo_byUser"
+                                            >
+                                              Update
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </section>
+                                
+                            </section>
+                        </div>
+                        <h2 id="title">Select options</h2>
+                        <select id="recordingOption">
+                            
+                            <option value="1">Record Face and Hand/LandMarks</option>
+                            <option value="2">Record With HeartBeat</option>
+                            <option value="3">Record With Selfie View</option>
+                            <option value="4">Record With frames</option>
+                            <option value="5">Record Detection timestamped</option>
+                            <option value="6">Record Secondary Video input Device</option>
+                        </select>
+                        <!-- <script>
+                            const videoContainer = document.getElementById('videoContainer');
+                            const startButton = document.getElementById('startButton');
+                            const stopButton = document.getElementById('stopButton');
+                    
+                            let imgElement = null;
+                            let stream = null;
+                    
+                            startButton.addEventListener('click', () => {
+                                if (!imgElement) {
+                                    // Create img element
+                                    imgElement = document.createElement('img');
+                                    imgElement.id = 'videoStream';
+                                    imgElement.style.display = 'block'; // Show the image
+                    
+                                    // Set src attribute
+                                    imgElement.src = '{{ url_for("video", full_name = data.full_name) }}';
+                    
+                                    // Append img element to videoContainer
+                                    videoContainer.appendChild(imgElement);
+                    
+                                    // Hide start button and show stop button
+                                    startButton.style.display = 'none';
+                                    stopButton.style.display = 'inline-block';
+                                }
+                            });
+                    
+                            stopButton.addEventListener('click', () => {
+                                if (imgElement) {
+                                    // Remove img src
+                                    imgElement.removeAttribute('src');
+                    
+                                    // Remove img element from videoContainer
+                                    videoContainer.removeChild(imgElement);
+                                    imgElement = null; // Reset imgElement reference
+                    
+                                    // Stop the stream if it's a video stream
+                                    if (stream && stream.getTracks) {
+                                        const tracks = stream.getTracks();
+                                        tracks.forEach((track) => {
+                                            track.stop();
+                                        });
+                                    }
+                                    stream = null; // Reset stream reference
+                    
+                                    // Hide stop button and show start button
+                                    startButton.style.display = 'inline-block';
+                                    stopButton.style.display = 'none';
+                                }
+                            });
+                        </script> -->
+                    
+                        <script>
+                            const videoContainer = document.getElementById('videoContainer');
+                            const startButton = document.getElementById('startButton');
+                            const stopButton = document.getElementById('stopButton');
+                            const recordingOption = document.getElementById('recordingOption');
+                        
+                            let imgElement = null;
+                            let stream = null;
+                        
+                            // Get the full_name value passed from Flask
+                            const fullName = "{{ data.full_name }}";
+                        
+                            startButton.addEventListener('click', () => {
+                                if (!imgElement) {
+                                    // Get selected option value
+                                    const selectedOption = recordingOption.value;
+                        
+                                    // Create img element
+                                    imgElement = document.createElement('img');
+                                    imgElement.id = 'videoStream';
+                                    imgElement.style.display = 'block'; // Show the image
+                        
+                                    // Set src attribute with full_name and selected option value
+                                    imgElement.src = `{{ url_for('video', full_name = '' ) }}${fullName}_${selectedOption}`;
+                        
+                                    // Append img element to videoContainer
+                                    videoContainer.appendChild(imgElement);
+                        
+                                    // Hide start button and show stop button
+                                    startButton.style.display = 'none';
+                                    stopButton.style.display = 'inline-block';
+                                }
+                            });
+                        
+                            stopButton.addEventListener('click', () => {
+                                if (imgElement) {
+                                    // Remove img src
+                                    imgElement.removeAttribute('src');
+                        
+                                    // Remove img element from videoContainer
+                                    videoContainer.removeChild(imgElement);
+                                    imgElement = null; // Reset imgElement reference
+                        
+                                    // Stop the stream if it's a video stream
+                                    if (stream && stream.getTracks) {
+                                        const tracks = stream.getTracks();
+                                        tracks.forEach((track) => {
+                                            track.stop();
+                                        });
+                                    }
+                                    stream = null; // Reset stream reference
+                        
+                                    // Hide stop button and show start button
+                                    startButton.style.display = 'inline-block';
+                                    stopButton.style.display = 'none';
+                                }
+                            });
+                        </script>
+
+                        
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+                            
+                        </div>
+                      
+                          
+                    </body></div>
+                    
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <!-- Lie Detection Sessions -->
+           
+    </main>
+    <div class="ttr-overlay"></div>
+
+    <script src="{{url_for('static', filename='dashboard/assets/js/jquery.min.js')}}"></script>
+    
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap-select/bootstrap-select.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/magnific-popup/magnific-popup.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/counter/waypoints-min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/counter/counterup.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/imagesloaded/imagesloaded.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/masonry/masonry.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/masonry/filter.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/owl-carousel/owl.carousel.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/scroll/scrollbar.min.js')}} "></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/functions.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/chart/chart.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/admin.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/vendors/calendar/moment.min.js')}} "></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static', filename='dashboard/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/froala_editor.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/align.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/char_counter.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/code_beautifier.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/code_view.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/colors.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/draggable.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/emoticons.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/entities.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/file.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/font_size.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/font_family.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/fullscreen.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/image.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/image_manager.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/line_breaker.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/inline_style.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/link.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/lists.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/paragraph_format.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/paragraph_style.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/quick_insert.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/quote.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/table.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/save.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/url.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='froala/js/plugins/video.min.js')}}"></script>
+    <script>
+        (function() {
+            new FroalaEditor("#edit", {
+                toolbarButtons: {
+                    moreText: {
+                        buttons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting'],
+                        align: 'left',
+                        buttonsVisible: 3
+                    },
+                    moreParagraph: {
+                        buttons: ['alignLeft', 'alignCenter', 'formatOLSimple'],
+                        align: 'left',
+                        buttonsVisible: 3
+                    },
+                    moreMisc: {
+                        buttons: ['undo', 'redo'],
+                        align: 'right'
+                    }
+                },
+                toolbarButtonsXS: [
+                    ['undo', 'redo'],
+                    ['bold', 'italic', 'underline']
+                ]
+            })
+        })()
+    </script>
+    <script type="text/javascript">
+        function readURL(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#display-img-' + id).attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>
